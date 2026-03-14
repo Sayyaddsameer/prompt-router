@@ -1,0 +1,17 @@
+# Exclude from Docker build context
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+.env
+.git/
+.gitignore
+.gitattributes
+tests/
+.pytest_cache/
+.coverage
+.idea/
+.vscode/
+*.DS_Store
+Thumbs.db
