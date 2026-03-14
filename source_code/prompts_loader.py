@@ -61,6 +61,6 @@ def get_persona_label(intent: str) -> str:
     """Return the human-readable persona label for display purposes."""
     prompts = load_prompts()
     entry = prompts.get(intent, {})
-    emoji = entry.get("emoji", "🤖")
+    emoji = entry.get("emoji", "")
     label = entry.get("label", intent.title())
     return f"{emoji} {label}"

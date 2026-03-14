@@ -1,4 +1,4 @@
-# 🧠 Prompt Router
+# Prompt Router
 
 A production-ready, intent-based AI routing service that classifies user messages and delegates them to specialized expert personas. Built with **Python 3.11 + FastAPI + OpenAI**.
 
@@ -33,17 +33,17 @@ User Message
 
 | Intent | Persona | Trigger |
 |--------|---------|---------|
-| `code` | 🧑‍💻 Code Expert | Programming, debugging, SQL, algorithms |
-| `data` | 📊 Data Analyst | Statistics, data interpretation, pivot tables |
-| `writing` | ✍️ Writing Coach | Editing feedback, clarity, tone improvement |
-| `career` | 💼 Career Advisor | Interviews, cover letters, professional advice |
-| `unclear` | 🤔 Clarification | Ambiguous, off-topic, or low-confidence inputs |
+| `code` | Code Expert | Programming, debugging, SQL, algorithms |
+| `data` | Data Analyst | Statistics, data interpretation, pivot tables |
+| `writing` | Writing Coach | Editing feedback, clarity, tone improvement |
+| `career` | Career Advisor | Interviews, cover letters, professional advice |
+| `unclear` | Clarification | Ambiguous, off-topic, or low-confidence inputs |
 
 ### Stretch Goals Implemented
-- ✅ **Confidence threshold** — inputs below `CONFIDENCE_THRESHOLD` (default 0.7) are routed to `unclear`
-- ✅ **Manual override** — prefix messages with `@<intent>` (e.g. `@code fix this bug`) to bypass classification
-- ✅ **FastAPI web UI** — interactive docs at `/docs` with the detected intent and confidence shown in the response
-- ✅ **CLI mode** — run a single message from the command line: `python main.py "your message"`
+- **Confidence threshold** — inputs below `CONFIDENCE_THRESHOLD` (default 0.7) are routed to `unclear`
+- **Manual override** — prefix messages with `@<intent>` (e.g. `@code fix this bug`) to bypass classification
+- **FastAPI web UI** — interactive docs at `/docs` with the detected intent and confidence shown in the response
+- **CLI mode** — run a single message from the command line: `python main.py "your message"`
 
 ---
 
@@ -144,7 +144,7 @@ Response (`200 OK`):
     "confidence": 0.95,
     "override": false
   },
-  "persona": "🧑‍💻 Code Expert",
+  "persona": "Code Expert",
   "response": "Use the `key` parameter of `sorted()` or `.sort()`..."
 }
 ```
@@ -174,7 +174,7 @@ Each request appends one JSON object (one line):
   "intent": "code",
   "confidence": 0.95,
   "override": false,
-  "persona": "🧑‍💻 Code Expert",
+  "persona": "Code Expert",
   "user_message": "how do i sort a list of objects in python?",
   "final_response": "Use list.sort()..."
 }

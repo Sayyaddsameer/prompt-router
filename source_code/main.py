@@ -112,7 +112,7 @@ async def list_prompts() -> list[PersonaInfo]:
         PersonaInfo(
             intent=key,
             label=val.get("label", key.title()),
-            emoji=val.get("emoji", "🤖"),
+            emoji=val.get("emoji", ""),
             system_prompt=val.get("system_prompt", ""),
         )
         for key, val in prompts.items()
@@ -186,18 +186,18 @@ async def _cli_main() -> None:
 
     message: str = args.message
 
-    print(f"\n📨  Message: {message}")
+    print(f"\n Message: {message}")
     print("─" * 60)
 
     intent_result = await classify_intent(message)
     persona = get_persona_label(intent_result["intent"])
 
     print(
-        f"🔍  Intent : {intent_result['intent']:10s}  "
+        f" Intent : {intent_result['intent']:10s}  "
         f"Confidence: {intent_result['confidence']:.0%}  "
         f"Override: {intent_result.get('override', False)}"
     )
-    print(f"🎭  Persona: {persona}")
+    print(f" Persona: {persona}")
     print("─" * 60)
 
     response_text = await route_and_respond(message, intent_result)

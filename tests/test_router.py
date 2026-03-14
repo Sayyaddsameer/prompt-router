@@ -82,7 +82,7 @@ def test_log_route_writes_valid_jsonl(tmp_path):
     log_file = tmp_path / "test_log.jsonl"
 
     with patch("route_logger.get_settings") as mock_settings, \
-         patch("route_logger.get_persona_label", return_value="🧑‍💻 Code Expert"):
+         patch("route_logger.get_persona_label", return_value="Code Expert"):
         mock_settings.return_value.log_file = str(log_file)
         mock_settings.return_value.fallback_intent = "unclear"
         mock_settings.return_value.fallback_confidence = 0.0
@@ -109,7 +109,7 @@ def test_log_route_appends_multiple_entries(tmp_path):
     log_file = tmp_path / "multi.jsonl"
 
     with patch("route_logger.get_settings") as mock_settings, \
-         patch("route_logger.get_persona_label", return_value="📊 Data Analyst"):
+         patch("route_logger.get_persona_label", return_value="Data Analyst"):
         mock_settings.return_value.log_file = str(log_file)
         mock_settings.return_value.fallback_intent = "unclear"
         mock_settings.return_value.fallback_confidence = 0.0
