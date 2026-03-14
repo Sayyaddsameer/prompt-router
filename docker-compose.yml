@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT:-8000}:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - CLASSIFIER_MODEL=${CLASSIFIER_MODEL:-gpt-4o-mini}
+      - RESPONDER_MODEL=${RESPONDER_MODEL:-gpt-4o-mini}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-https://api.openai.com/v1}
+      - CONFIDENCE_THRESHOLD=${CONFIDENCE_THRESHOLD:-0.7}
+      - PROMPTS_FILE=${PROMPTS_FILE:-prompts.json}
+      - LOG_FILE=${LOG_FILE:-route_log.jsonl}
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      - PORT=${PORT:-8000}
+      - HOST=${HOST:-0.0.0.0}
+    volumes:
+      # Persist the JSONL log file to the host so it survives container restarts
+      - ./route_log.jsonl:/app/route_log.jsonl
+    restart: unless-stopped
