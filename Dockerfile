@@ -33,4 +33,4 @@ USER appuser
 EXPOSE 8000
 
 # Exec-form CMD: uvicorn receives SIGTERM directly (graceful shutdown)
-CMD ["sh", "-c", "uvicorn main:app --host ${HOST:-0.0.0.0} --port ${PORT:-8000} --workers 1 --log-level ${LOG_LEVEL:-info}"]
+CMD ["sh", "-c", "uvicorn main:app --host ${HOST:-0.0.0.0} --port ${PORT:-8000} --workers 1 --log-level $(echo ${LOG_LEVEL:-info} | tr '[:upper:]' '[:lower:]')"]
