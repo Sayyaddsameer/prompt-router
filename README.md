@@ -2,6 +2,13 @@
 
 A production-ready, intent-based AI routing service that classifies user messages and delegates them to specialized expert personas. Built with **Python 3.11 + FastAPI + OpenAI**.
 
+## Project Demo
+
+Full architecture walkthrough and live API demonstration.
+
+**Watch the demo:**  
+[![Watch the Demo](https://img.shields.io/badge/Watch-Demo%20Video-red?style=for-the-badge&logo=google-drive)](https://drive.google.com/file/d/1Lt7qkdcVr9EOU9_CSVt1-SrSYI4BgT7s/view?usp=sharing)
+
 ---
 
 ## Architecture
